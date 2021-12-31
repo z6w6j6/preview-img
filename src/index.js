@@ -1,21 +1,16 @@
-/*
- * @Author: your name
- * @Date: 2021-04-23 11:25:54
- * @LastEditTime: 2021-11-08 14:13:11
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \dsports-emloyee-webg:\BaiduNetdiskDownload\资料\资料\demo\preview-img\src\index.js
- */
+
 import './style/index.css'
 import fangda from './assets/fangda.svg'
 import reduce from './assets/reduce.svg'
 import rotate1 from './assets/rotate1.svg'
 import close1 from './assets/close1.svg'
+// import {Loader} from 'three'
+// import $ from 'jquery'
+// console.log($)
 const previewImg = function(params){
   const {zIndex,src,closeFun} = params
   const that = previewImg.prototype
   that.params = params
-  const dir = '../src/'
   const wrap = document.createElement('div')
   wrap.classList="preview-img-zwj__wrap"
   wrap.style.opacity = 0
@@ -36,37 +31,9 @@ const previewImg = function(params){
   document.getElementById('preview-img-zwj__mask').style.zIndex =maxZindex+1
   document.getElementsByClassName('preview-img-zwj__content')[0].style.zIndex =maxZindex+2
   document.getElementsByClassName('preview-img-zwj__action')[0].style.zIndex =maxZindex+3
-  var style = document.createElement('link');
-  style.href = `${dir}style/index.css`;
-  style.rel = 'stylesheet';
-  style.type = 'text/css';
-  document.getElementsByTagName('HEAD').item(0).appendChild(style);
-  setTimeout(function(){
-    that.resetStyle()
-  },100)
-  
   that._renderEvent()
-  // that.getStyle()
 }
 previewImg.prototype = {
-  resetStyle:function(){
-    const comStyle = window.getComputedStyle(document.getElementById('box'))
-    // 需要减去图片的初始宽高才能让他展示在中间
-    const maskStyle = window.getComputedStyle(document.getElementById('preview-img-zwj__mask'))
-    var marginLeft = maskStyle.width;
-    var marginTop = maskStyle.height;
-    const imgDom =  document.getElementById('preview-img-zwj__img')
-    // imgDom.style.margin = 0;
-    if(imgDom.naturalWidth){
-      document.getElementById('box').style.left = (parseFloat(marginLeft)-imgDom.naturalWidth) / 2 + 'px';
-      document.getElementById('box').style.top = (parseFloat(marginTop)-imgDom.naturalHeight) / 2 + 'px';
-    }else{
-      imgDom.onload = function(){
-        document.getElementById('box').style.left = (parseFloat(marginLeft)-imgDom.naturalWidth) / 2 + 'px';
-        document.getElementById('box').style.top = (parseFloat(marginTop)-imgDom.naturalHeight) / 2 + 'px';
-      }
-    }
-  },
   _renderEvent(){
     document.querySelector('.preview-img-zwj__content .close').onclick = this._closeFun
     document.querySelector('.preview-img-zwj__content .preview-img-zwj__action .fangda').onclick = this._fangdaFun
@@ -197,16 +164,6 @@ previewImg.prototype = {
   },
   _scroll:function(){//滚轮放大缩小
 
-  },
-  getStyle:function(){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", 'style/index.css')
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
-        }
-    }
-    xhr.send();
   }
 }
 

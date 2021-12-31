@@ -7,4 +7,5 @@
  * @FilePath: \dsports-emloyee-webg:\BaiduNetdiskDownload\资料\资料\demo\preview-img\index.js
  */
 import previewImg from 'src/index'
+
 export default previewImg

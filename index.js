@@ -8,6 +8,7 @@
  * @Description: In User Settings Edit
  * @FilePath: \dsports-emloyee-webg:\BaiduNetdiskDownload\资料\资料\demo\preview-img\src\index.js
  */
+<<<<<<< HEAD
 var previewImg = function previewImg(params) {
   var zIndex = params.zIndex,
       src = params.src,
@@ -171,3 +172,8 @@ previewImg.prototype = {
 
 // export default preview;
 // return preview;
+=======
+import previewImg from 'src/index'
+
+export default previewImg
+>>>>>>> 9b037dbf69a6a3cf928ac01ec2f064ef678abde7

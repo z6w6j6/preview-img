@@ -41,7 +41,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  /* transition: transform .3s ,width .3s, height .3s; */
+  transition: transform .3s ,width .3s, height .3s;
   transform: rotate(0deg);
 
 }

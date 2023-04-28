@@ -36,3 +36,12 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./example
           force_orphan: true
+      - name: Add SSH key to ssh-agent
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+          SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        run: |
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        shell: bash
+          
